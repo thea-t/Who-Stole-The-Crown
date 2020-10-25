@@ -37,7 +37,7 @@ npcs[10] = new NPC("Hoel", "art/Hoel.png", 700, 350, false, true, false, false, 
 npcs[11] = new NPC("Barry", "art/Barry.png", 400, 400, false, true, true, false, false, false, false, false, false, false, false);
 npcs[12] = new NPC("Two Toes", "art/TwoToes.png", 700, 320, false, false, true, false, true, false, true, false, false, false, false);
 npcs[13] = new NPC("Black Bart", "art/BlackBart.png", 600, 370, false, false, true, false, false, false, true, true, false, false, false);
-npcs[14] = new NPC("Zorro", "art/Zorro.png", 200, 300, false, false, true, false, false, false, true, true, false, false, true);
+npcs[14] = new NPC("Zorro", "art/Zorro.png", 200, 300, false, false, true, false, false, false, false, true, false, false, true);
 npcs[15] = new NPC("Donald", "art/Donald.png", 300, 400, false, true, true, false, true, false, false, false, false, false, false);
 
 

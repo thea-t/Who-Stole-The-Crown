@@ -13,6 +13,7 @@ function playGame() {
     //detect mouse click
     canvas.addEventListener('click', checkMouseClick, false);
 
+    randomizeNumbers();
 }
 
 function checkMouseClick() {
@@ -104,23 +105,24 @@ function checkMouseClick() {
                 startConversation(king);
                 drawIntro(16);
                 context.font = '15px "Trebuchet MS", Helvetica, sans-serif';
-                context.fillText("I found the thief!", 120, 330);
-                context.fillText("It's too difficult, I give up!", 120, 430);
-                context.fillText("I need more time", 540, 330);
+                context.fillText("I found the thief!", 120, 345);
+                context.fillText("It's too difficult, I give up!", 120, 445);
+                context.fillText("I need more time", 540, 345);
+
             }
         }
         else if (x > npcs[3].npcPositionX && x < npcs[3].npcPositionX + jesterImage.width) {
             if (y > npcs[3].npcPositionY && y < npcs[3].npcPositionY + jesterImage.height) {
                 startConversation(npcs[3]);
                 drawIntro(3);
-                drawQuestions(randomNumber[25], randomNumber[26], randomNumber[27]);
+                drawQuestions(randomNumber[22], randomNumber[23], randomNumber[0]);
             }
         }
         else if (x > npcs[4].npcPositionX && x < npcs[4].npcPositionX + chefImage.width) {
             if (y > npcs[4].npcPositionY && y < npcs[4].npcPositionY + chefImage.height) {
                 startConversation(npcs[4]);
                 drawIntro(4);
-                drawQuestions(randomNumber[28], randomNumber[29], randomNumber[30]);
+                drawQuestions(randomNumber[1], randomNumber[5], randomNumber[7]);
             }
         }
     }
@@ -130,14 +132,14 @@ function checkMouseClick() {
             if (y > npcs[6].npcPositionY && y < npcs[6].npcPositionY + sirArthurImage.height) {
                 startConversation(npcs[6]);
                 drawIntro(6);
-                drawQuestions(randomNumber[31], randomNumber[32], randomNumber[33]);
+                drawQuestions(randomNumber[4], randomNumber[2], randomNumber[8]);
             }
         }
         else if (x > npcs[7].npcPositionX && x < npcs[7].npcPositionX + sirBromImage.width) {
             if (y > npcs[7].npcPositionY && y < npcs[7].npcPositionY + sirBromImage.height) {
                 startConversation(npcs[7]);
                 drawIntro(7);
-                drawQuestions(randomNumber[34], randomNumber[35], randomNumber[36]);
+                drawQuestions(randomNumber[3], randomNumber[6], randomNumber[22]);
             }
         }
     }
@@ -148,21 +150,21 @@ function checkMouseClick() {
             if (y > npcs[9].npcPositionY && y < npcs[9].npcPositionY + resseImage.height) {
                 startConversation(npcs[9]);
                 drawIntro(9);
-                drawQuestions(randomNumber[37], randomNumber[38], randomNumber[39]);
+                drawQuestions(randomNumber[15], randomNumber[14], randomNumber[18]);
             }
         }
         else if (x > npcs[10].npcPositionX && x < npcs[10].npcPositionX + hoelImage.width) {
             if (y > npcs[10].npcPositionY && y < npcs[10].npcPositionY + hoelImage.height) {
                 startConversation(npcs[10]);
                 drawIntro(10);
-                drawQuestions(randomNumber[40], randomNumber[41], randomNumber[42]);
+                drawQuestions(randomNumber[19], randomNumber[11], randomNumber[21]);
             }
         }
         else if (x > npcs[11].npcPositionX && x < npcs[11].npcPositionX + barryImage.width) {
             if (y > npcs[11].npcPositionY && y < npcs[11].npcPositionY + barryImage.height) {
                 startConversation(npcs[11]);
                 drawIntro(11);
-                drawQuestions(randomNumber[43], randomNumber[44], randomNumber[45]);
+                drawQuestions(randomNumber[0], randomNumber[10], randomNumber[12]);
             }
         }
     }
@@ -173,14 +175,14 @@ function checkMouseClick() {
             if (y > npcs[14].npcPositionY && y < npcs[14].npcPositionY + zorroImage.height) {
                 startConversation(npcs[14]);
                 drawIntro(14);
-                drawQuestions(randomNumber[46], randomNumber[47], randomNumber[48]);
+                drawQuestions(randomNumber[13], randomNumber[20], randomNumber[17]);
             }
         }
         else if (x > npcs[13].npcPositionX && x < npcs[13].npcPositionX + blackBartImage.width) {
             if (y > npcs[13].npcPositionY && y < npcs[13].npcPositionY + blackBartImage.height) {
                 startConversation(npcs[13]);
                 drawIntro(13);
-                drawQuestions(randomNumber[22], randomNumber[23], randomNumber[24]);
+                drawQuestions(randomNumber[9], randomNumber[23], randomNumber[16]);
             }
         }
     }
