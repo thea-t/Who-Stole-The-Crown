@@ -359,12 +359,12 @@ function checkThief() {
 
     if (accusedName != null) {
         if (accusedName == thief.npcName) {
-            finalScene(true);
-            victory();
+            victory(true);
+       
 
         }
         else {
-            finalScene(false);
+            victory(false);
             defeat();
         }
     }
@@ -372,7 +372,7 @@ function checkThief() {
 
 }
 
-function finalScene(wonGame) {
+function victory(wonGame) {
 
     canvas.removeEventListener('click', checkButtonClicks, false);
     canvas.addEventListener('click', checkTryAgainButton, false);
@@ -436,6 +436,7 @@ function checkTryAgainButton() {
     if (x > 600 && x < 600 + buttonImage.width*1.15) {
         if (y > 350 && y < 350 + buttonImage.height*1.45) {
 
+            backgroundMusic.pause();
             startGame();
         }
            

@@ -1,4 +1,6 @@
 function playGame() {
+
+   
     //pick a random guilty npc
     thief = npcs[Math.floor(Math.random() * npcs.length)];
     alert(thief.npcName);
@@ -6,7 +8,7 @@ function playGame() {
     canvas.removeEventListener('click', playGame, false);
 
     //load audio
-    var backgroundMusic = new Audio('music.mp3');
+    backgroundMusic = new Audio('music.mp3');
     backgroundMusic.loop = true;
     backgroundMusic.play();
 

@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\game",
+    "\\game\\scripts"
   ],
+  "SelectedNode": "\\game\\scripts\\menu.js",
   "PreviewInSolutionExplorer": false
 }
