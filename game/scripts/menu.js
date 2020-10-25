@@ -6,24 +6,18 @@ window.onload = function () {
     var backgroundImage = new Image();
     backgroundImage.src = "art/main-background.png";
 
-    //load crown image
-    var crownImage = new Image();
-    crownImage.src = "art/crown.png";
+   
 
     //draw the image after it is loaded
     backgroundImage.onload = function () {
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
-        //draw the image after it is loaded
-        crownImage.onload = function () {
-            context.drawImage(crownImage, 340, 250, crownImage.width / 2, crownImage.height/2);
-        }
-
+       
         //draw the text in the center after the image is drawn
-        context.font = '30px serif';
+        context.font = '20px serif';
         context.textAlign = "center";
         context.strokeStyle = "gray";
-        context.strokeText("PRESS TO START", canvas.width / 2, canvas.height / 1.2);
+        context.strokeText("PRESS TO START", canvas.width / 2, canvas.height / 1.15);
     }
 
     //detect mouse click
@@ -31,6 +25,7 @@ window.onload = function () {
 
 }
 function startGame() {
+  
 
     canvas.removeEventListener('click', startGame, false);
 
@@ -56,7 +51,7 @@ function startGame() {
         context.font = '20px serif';
         context.textAlign = "center";
         context.strokeStyle = "gray";
-        context.strokeText("PRESS TO CONTINUE", canvas.width / 2, canvas.height / 1.2);
+        context.strokeText("PRESS TO CONTINUE", canvas.width / 2, canvas.height / 1.15);
     }
 
 

@@ -1,4 +1,7 @@
 function playGame() {
+    //pick a random guilty npc
+    thief = npcs[Math.floor(Math.random() * npcs.length)];
+    alert(thief.npcName);
 
     canvas.removeEventListener('click', playGame, false);
 
@@ -106,8 +109,8 @@ function checkMouseClick() {
                 drawIntro(16);
                 context.font = '15px "Trebuchet MS", Helvetica, sans-serif';
                 context.fillText("I found the thief!", 120, 345);
-                context.fillText("It's too difficult, I give up!", 120, 445);
-                context.fillText("I need more time", 540, 345);
+                context.fillText("I need more time", 120, 445);
+                context.fillText("It's too difficult, I give up!", 540, 345);
 
             }
         }

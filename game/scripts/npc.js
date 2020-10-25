@@ -42,6 +42,3 @@ npcs[15] = new NPC("Donald", "art/Donald.png", 300, 400, false, true, true, fals
 
 
 
-//pick a random guilty npc
-var thief = npcs[Math.floor(Math.random() * npcs.length)];
-alert(thief.npcName);

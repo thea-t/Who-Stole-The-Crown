@@ -60,10 +60,7 @@ var clues = [
     ["It was near the castle door. Maybe someone dropped it yesterday night.","It was in the forest. Those poor shield-men, they defend the kingdom all the time... I must find the owner."],
 ];
 
-var kingsResponses = [
-    "YOU FOUND THE THIEF! I knew that I could count on you. \nYou are promoted to a royal detective now!",
-    "THIS IS NOT THE THIEF! Unfortunately, you disappointed me, detective.\nJester!, call the executioner!"
-];
+
 
 var randomNumber = new Array();
 
@@ -328,7 +325,7 @@ function checkButtonClicks() {
                 askQuestion(currentQuestion3);
             }
             else {
-                alert("You lost!");
+                defeat();
             }
         }
         //bot-right
@@ -360,105 +357,144 @@ function checkThief() {
         npcs[14].npcName + "\n -" +
         npcs[15].npcName, "Enter the name of the thief");
 
-    if (accusedName == thief.npcName) {
-        finalScene(true);
-        
+    if (accusedName != null) {
+        if (accusedName == thief.npcName) {
+            finalScene(true);
+            victory();
+
+        }
+        else {
+        }
     }
-    else {
-        finalScene(false);
-    }
+    
 
 }
 
 function finalScene(wonGame) {
 
-    //canvas.removeEventListener('click', checkButtonClicks, false);
+    canvas.removeEventListener('click', checkButtonClicks, false);
+    canvas.addEventListener('click', checkTryAgainButton, false);
 
-    //canvas.addEventListener('click', checkTryAgainButton, false);
+ 
 
-    //var backgroundImage = new Image();
-    //backgroundImage.src = "art/main-background.png";
-    //backgroundImage.onload = function () {
-    //    context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-    //    context.drawImage(buttonImage, 100, 100);
+    //load background image
+    var victoryImage = new Image();
+    victoryImage.src = "art/victory.png";
 
-    //    var kingImage = new Image();
-
-    //    if (wonGame) {
-    //        kingImage.src = "art/TheKing.png";
-    //    }
-    //    else {
-    //        kingImage.src = "art/TheKingWithCrown.png";
-    //    }
+    //draw the image after it is loaded
+    victoryImage.onload = function () {
+        context.drawImage(victoryImage, 0, 0, canvas.width, canvas.height);
 
 
-    //    kingImage.onload = function () {
-    //        context.drawImage(kingImage, 300, 300);
+        //load background image
+        var theKingWithCrownImage = new Image();
+        theKingWithCrownImage.src = "art/TheKingWithCrown.png";
 
-    //        context.font = '15px "Trebuchet MS", Helvetica, sans-serif';
+        //load background image
+        var conversationBubbleImage = new Image();
+        conversationBubbleImage.src = "art/conversation_bubble.png";
 
-    //        if (wonGame) {
-    //            context.fillText(kingsResponses[0], 300, 300);
-    //        }
-    //        else {
-    //            context.fillText(kingsResponses[1], 300, 300);
-    //        }
-    //    }
-    //}
-    
+
+
+        //draw the image after it is loaded
+        conversationBubbleImage.onload = function () {
+
+
+            context.drawImage(conversationBubbleImage, 50, 100, 500, 430,);
+            context.font = '13px "Trebuchet MS", Helvetica, sans-serif';
+            context.textAlign = "center";
+            context.fillText(" YOU FOUND THE THIEF!", 295, 290);
+            context.fillText("I knew that I could count on you.", 295, 290 + 25);
+            context.fillText("You are promoted to a royal detective!", 300, 290 + 50);
+            
+        }
+
+        //draw the image after it is loaded
+        theKingWithCrownImage.onload = function () {
+            context.drawImage(theKingWithCrownImage, 20, 470);
+
+
+        }
+        context.drawImage(buttonImage, 600, 350, 220, 70);
+        context.font = '30px serif';
+        context.strokeStyle = "gray";
+        context.strokeText("PLAY AGAIN", 620, 390);
+    }
 
 }
 
 function checkTryAgainButton() {
-    //// get the hotizontal and the vertical coordinate
-    //var x = event.clientX;
-    //var y = event.clientY;
+        var x = event.clientX;
+    var y = event.clientY;
 
-    //// make the canvas start from (0,0) in order to get accurate coordinates of the npc's positions
-    //x -= canvas.offsetLeft;
-    //y -= canvas.offsetTop;
+    // make the canvas start from (0,0) in order to get accurate coordinates of the npc's positions
+    x -= canvas.offsetLeft;
+    y -= canvas.offsetTop;
 
+    if (x > 600 && x < 600 + buttonImage.width*1.15) {
+        if (y > 350 && y < 350 + buttonImage.height*1.45) {
 
-
-    ////top-left button
-    //if (x > 100 && x < 100 + buttonImage.width * 2) {
-    //    if (y > 300 && y < 300 + buttonImage.height * 1.8) {
-    //        if (currentNpc.npcName != "King") {
-    //            askQuestion(currentQuestion1);
-    //        }
-    //        else {
-    //            checkThief();
-    //        }
-    //    }
-    //    //bot-left
-    //    else if (y > 400 && y < 400 + buttonImage.height * 1.8) {
-
-    //        if (currentNpc.npcName != "King") {
-    //            askQuestion(currentQuestion2);
-    //        }
-    //        else {
-    //            alert("Then get back to work!");
-    //        }
-    //    }
-    //}
-    ////top-right
-    //else if (x > 520 && x < 520 + buttonImage.width * 2) {
-    //    if (y > 300 && y < 300 + buttonImage.height * 1.8) {
-    //        if (currentNpc.npcName != "King") {
-    //            askQuestion(currentQuestion3);
-    //        }
-    //        else {
-    //            alert("You lost!");
-    //        }
-    //    }
-    //    //bot-right
-    //    else if (y > 400 && y < 400 + buttonImage.height * 1.8) {
-    //        loadScene(activeScene);
-    //        canvas.removeEventListener('click', checkButtonClicks, false);
-
-    //    }
-    //}
+            startGame();
+        }
+           
+    }
 }
+
+function defeat() {
+   
+    canvas.removeEventListener('click', checkButtonClicks, false);
+    canvas.addEventListener('click', checkTryAgainButton, false);
+
+
+    //load background image
+    var defeatImage = new Image();
+    defeatImage.src = "art/defeat.png";
+
+    //draw the image after it is loaded
+    defeatImage.onload = function () {
+        context.drawImage(defeatImage, 0, 0, canvas.width, canvas.height);
+
+        //load background image
+        var theKingImage = new Image();
+        theKingImage.src = "art/TheKing.png";
+
+        //load background image
+        var conversationBubbleImage = new Image();
+        conversationBubbleImage.src = "art/conversation_bubble.png";
+
+
+
+        //draw the image after it is loaded
+        conversationBubbleImage.onload = function () {
+
+           
+            context.drawImage(conversationBubbleImage, 50, 100, 500, 430,);
+            context.font = '13px "Trebuchet MS", Helvetica, sans-serif';
+            context.textAlign = "center";
+            context.fillText("THIS IS NOT THE THIEF!", 295, 290);
+            context.fillText("Unfortunately.. you disappointed me, detective.", 295, 290 + 25);
+            context.fillText("Jester, call the executioner!", 300, 290 + 50);
+        }
+
+
+        //draw the image after it is loaded
+        theKingImage.onload = function () {
+            context.drawImage(theKingImage, 20, 470);
+
+            
+        }
+        context.drawImage(buttonImage, 600, 350, 220, 70);
+        context.font = '30px serif';
+        context.strokeStyle = "gray";
+        context.strokeText("PLAY AGAIN", 620, 390);
+       
+    }
+
+
+}
+
+
+
 
 function drawDialogueText(text) {
     const textAreaWidth = 400;
