@@ -364,6 +364,8 @@ function checkThief() {
 
         }
         else {
+            finalScene(false);
+            defeat();
         }
     }
     
