@@ -3,12 +3,12 @@ function playGame() {
    
     //pick a random guilty npc
     thief = npcs[Math.floor(Math.random() * npcs.length)];
-    alert(thief.npcName);
+    //alert(thief.npcName);
 
     canvas.removeEventListener('click', playGame, false);
 
     //load audio
-    backgroundMusic = new Audio('music.mp3');
+    backgroundMusic = new Audio('art/music.mp3');
     backgroundMusic.loop = true;
     backgroundMusic.play();
 
@@ -37,6 +37,7 @@ function checkMouseClick() {
             changeScene(false);
         }
     }
+  
     else if (x > canvas.width - 100 && x < canvas.width - 100 + rightArrowImage.width) {
         if (y > canvas.height / 2 && y < canvas.height / 2 + rightArrowImage.height) {
             changeScene(true);
@@ -53,11 +54,11 @@ function checkMouseClick() {
                 drawQuestions(randomNumber[1], randomNumber[2], randomNumber[3]);
             }
         }
-        else if (x > npcs[12].npcPositionX && x < npcs[12].npcPositionX + twoToesImage.width) {
-            if (y > npcs[12].npcPositionY && y < npcs[12].npcPositionY + twoToesImage.height) {
-                startConversation(npcs[12]);
-                drawIntro(12);
-                drawQuestions(randomNumber[4], randomNumber[5], randomNumber[6]);
+        else if (x > npcs[15].npcPositionX && x < npcs[15].npcPositionX + donaldImage.width) {
+            if (y > npcs[15].npcPositionY && y < npcs[15].npcPositionY + donaldImage.height) {
+                startConversation(npcs[15]);
+                drawIntro(15);
+                drawQuestions(randomNumber[19], randomNumber[20], randomNumber[21]);
             }
         }
         else if (x > npcs[0].npcPositionX && x < npcs[0].npcPositionX + sparrowImage.width) {
@@ -95,13 +96,14 @@ function checkMouseClick() {
                 drawQuestions(randomNumber[16], randomNumber[17], randomNumber[18]);
             }
         }
-        else if (x > npcs[15].npcPositionX && x < npcs[15].npcPositionX + donaldImage.width) {
-            if (y > npcs[15].npcPositionY && y < npcs[15].npcPositionY + donaldImage.height) {
-                startConversation(npcs[15]);
-                drawIntro(15);
-                drawQuestions(randomNumber[19], randomNumber[20], randomNumber[21]);
+        else if (x > npcs[12].npcPositionX && x < npcs[12].npcPositionX + twoToesImage.width) {
+            if (y > npcs[12].npcPositionY && y < npcs[12].npcPositionY + twoToesImage.height) {
+                startConversation(npcs[12]);
+                drawIntro(12);
+                drawQuestions(randomNumber[4], randomNumber[5], randomNumber[6]);
             }
         }
+        
     }
     else if (activeScene == 3) {
         
@@ -276,8 +278,8 @@ function loadScene0() {
         //load npc images from their image source
         darkKnightImage = new Image();
         darkKnightImage.src = npcs[2].npcImageSource;
-        twoToesImage = new Image();
-        twoToesImage.src = npcs[12].npcImageSource;
+        donaldImage = new Image();
+        donaldImage.src = npcs[15].npcImageSource;
         sparrowImage = new Image();
         sparrowImage.src = npcs[0].npcImageSource;
 
@@ -285,8 +287,8 @@ function loadScene0() {
         darkKnightImage.onload = function () {
             context.drawImage(darkKnightImage, npcs[2].npcPositionX, npcs[2].npcPositionY);
         }
-        twoToesImage.onload = function () {
-            context.drawImage(twoToesImage, npcs[12].npcPositionX, npcs[12].npcPositionY);
+        donaldImage.onload = function () {
+            context.drawImage(donaldImage, npcs[15].npcPositionX, npcs[15].npcPositionY);
         }
         sparrowImage.onload = function () {
             context.drawImage(sparrowImage, npcs[0].npcPositionX, npcs[0].npcPositionY);
@@ -339,16 +341,18 @@ function loadScene2() {
         //load npc images from their image source
         sirHenryImage = new Image();
         sirHenryImage.src = npcs[5].npcImageSource;
-        donaldImage = new Image();
-        donaldImage.src = npcs[15].npcImageSource;
+        twoToesImage = new Image();
+        twoToesImage.src = npcs[12].npcImageSource;
+       
 
         //draw the npc images after they are loaded
         sirHenryImage.onload = function () {
             context.drawImage(sirHenryImage, npcs[5].npcPositionX, npcs[5].npcPositionY);
         }
-        donaldImage.onload = function () {
-            context.drawImage(donaldImage, npcs[15].npcPositionX, npcs[15].npcPositionY);
+        twoToesImage.onload = function () {
+            context.drawImage(twoToesImage, npcs[12].npcPositionX, npcs[12].npcPositionY);
         }
+      
 
     }
 }

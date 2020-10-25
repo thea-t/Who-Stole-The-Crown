@@ -415,12 +415,12 @@ function victory(wonGame) {
         theKingWithCrownImage.onload = function () {
             context.drawImage(theKingWithCrownImage, 20, 470);
 
+            context.drawImage(buttonImage, 600, 350, 220, 70);
+            context.font = '30px serif';
+            context.strokeStyle = "gray";
+            context.strokeText("PLAY AGAIN", 620, 390);
 
         }
-        context.drawImage(buttonImage, 600, 350, 220, 70);
-        context.font = '30px serif';
-        context.strokeStyle = "gray";
-        context.strokeText("PLAY AGAIN", 620, 390);
     }
 
 }
@@ -437,7 +437,9 @@ function checkTryAgainButton() {
         if (y > 350 && y < 350 + buttonImage.height*1.45) {
 
             backgroundMusic.pause();
+            canvas.removeEventListener('click', checkTryAgainButton, false);
             startGame();
+
         }
            
     }
