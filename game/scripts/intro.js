@@ -6,12 +6,9 @@ window.onload = function () {
     var backgroundImage = new Image();
     backgroundImage.src = "art/main-background.png";
 
-   
-
     //draw the image after it is loaded
     backgroundImage.onload = function () {
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-
        
         //draw the text in the center after the image is drawn
         context.font = '20px serif';
@@ -25,7 +22,6 @@ window.onload = function () {
 
 }
 function startGame() {
-  
 
     canvas.removeEventListener('click', startGame, false);
 

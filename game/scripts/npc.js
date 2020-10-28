@@ -39,6 +39,3 @@ npcs[12] = new NPC("Two Toes", "art/TwoToes.png", 300, 400, false, false, true, 
 npcs[13] = new NPC("Black Bart", "art/BlackBart.png", 600, 370, false, false, true, false, false, false, true, true, false, false, false);
 npcs[14] = new NPC("Zorro", "art/Zorro.png", 200, 300, false, false, true, false, false, false, false, true, false, false, true);
 npcs[15] = new NPC("Donald", "art/Donald.png", 200, 350, false, true, true, false, true, false, false, false, false, false, false);
-
-
-
