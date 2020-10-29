@@ -1,4 +1,5 @@
-﻿class NPC {
+﻿//create class in order to initialize npc's properties
+class NPC {
     constructor(name, imageSource, positionX, positionY, worksForKing, isPoorVillager, hasHat, hasArmor, wearsGreen, hasCuts, isPirate, wearsBlack, hasSword, hasShield, hasHorse) {
         this.npcName = name;
         this.npcImageSource = imageSource;
@@ -18,11 +19,11 @@
 
     }
 }
-
-var npcs = new Array();
+//store king's data 
 var king = new NPC("King", "art/TheKing.png", 300, 400);
 
-//store npc's data 
+//crete an array and store npc's data 
+var npcs = new Array();
 npcs[0] = new NPC("Sparrow", "art/Sparrow.png", 700, 320, false, false, true, false, false, false, true, true, true, false, false);
 npcs[1] = new NPC("Robin", "art/Robin.png", 220, 370, false, false, true, false, true, false, false, false, false, false, false);
 npcs[2] = new NPC("Dark Knight", "art/DarkKnight.png", 500, 410, false, false, false, true, false, false, false, true, false, true, true);

@@ -1,25 +1,4 @@
 
-//declare the 3rd scene to be the active scene by default (when the game starts)
-var activeScene = 3;
-
-
-function changeScene(goToRight) {
-    if (goToRight) {
-        //change the scene(+1) when the right arrow is clicked and the active scene is smaller than 6
-        if (activeScene < 6) {
-            activeScene++;
-            loadScene(activeScene);
-        }
-    }
-    //change the scene(-1) when the left arrow is clicked and the active scene is bigger than 0
-    else {
-        if (activeScene > 0) {
-            activeScene--;
-            loadScene(activeScene);
-        }
-    }
-}
-
 //load scenes at the given index
 function loadScene(sceneIndex) {
     if (sceneIndex == 0) {
@@ -44,7 +23,9 @@ function loadScene(sceneIndex) {
         loadScene6();
     }
 
+    //detect mouse clicks and calls functions
     canvas.addEventListener('click', checkMouseClick, false);
+    canvas.addEventListener('click', checkArrowClick, false);
 }
 
 
@@ -58,7 +39,6 @@ function loadScene0() {
     backgroundImage.onload = function () {
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
-        //calls the drawArrows function
         drawArrows();
 
         //load npc images from their image source
@@ -92,7 +72,6 @@ function loadScene1() {
     backgroundImage.onload = function () {
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
-        //calls the drawArrows function
         drawArrows();
 
         //load npc images from their image source
@@ -100,7 +79,7 @@ function loadScene1() {
         robinImage.src = npcs[1].npcImageSource;
         sivisImage = new Image();
         sivisImage.src = npcs[8].npcImageSource;
-       
+
         //draw the npc images after they are loaded
         robinImage.onload = function () {
             context.drawImage(robinImage, npcs[1].npcPositionX, npcs[1].npcPositionY);
@@ -121,7 +100,6 @@ function loadScene2() {
     backgroundImage.onload = function () {
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
-        //calls the drawArrows function
         drawArrows();
 
         //load npc images from their image source
@@ -129,7 +107,7 @@ function loadScene2() {
         sirHenryImage.src = npcs[5].npcImageSource;
         twoToesImage = new Image();
         twoToesImage.src = npcs[12].npcImageSource;
-       
+
 
         //draw the npc images after they are loaded
         sirHenryImage.onload = function () {
@@ -138,7 +116,7 @@ function loadScene2() {
         twoToesImage.onload = function () {
             context.drawImage(twoToesImage, npcs[12].npcPositionX, npcs[12].npcPositionY);
         }
-      
+
 
     }
 }
@@ -152,7 +130,6 @@ function loadScene3() {
     backgroundImage.onload = function () {
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
-        //calls the drawArrows function
         drawArrows();
 
         //load npc images from their image source
@@ -186,7 +163,6 @@ function loadScene4() {
     backgroundImage.onload = function () {
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
-        //calls the drawArrows function
         drawArrows();
 
         //load npc images from their image source
@@ -215,7 +191,6 @@ function loadScene5() {
     backgroundImage.onload = function () {
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
-        //calls the drawArrows function
         drawArrows();
 
         //load npc images from their image source
@@ -249,7 +224,6 @@ function loadScene6() {
     backgroundImage.onload = function () {
         context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
-        //calls the drawArrows function
         drawArrows();
 
         //load npc images from their image source

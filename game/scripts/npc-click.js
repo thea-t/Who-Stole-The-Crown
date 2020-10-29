@@ -1,24 +1,3 @@
-function playGame() {
-
-   
-    //pick a random guilty npc
-    thief = npcs[Math.floor(Math.random() * npcs.length)];
-
-    canvas.removeEventListener('click', playGame, false);
-
-    //load audio
-    backgroundMusic = new Audio('art/music.mp3');
-    backgroundMusic.loop = true;
-    backgroundMusic.play();
-
-    //call the loadScene3 function in order to load the default scene
-    loadScene3();
-
-    //detect mouse click
-    canvas.addEventListener('click', checkMouseClick, false);
-
-    randomizeNumbers();
-}
 
 function checkMouseClick() {
 
@@ -30,22 +9,10 @@ function checkMouseClick() {
     x -= canvas.offsetLeft;
     y -= canvas.offsetTop;
 
-    //check if the mouse click is inside the left or the right arrow buttons's position
-    if (x > 0 && x < leftArrowImage.width) {
-        if (y > canvas.height / 2 && y < canvas.height / 2 + leftArrowImage.height) {
-            changeScene(false);
-        }
-    }
-  
-    else if (x > canvas.width - 100 && x < canvas.width - 100 + rightArrowImage.width) {
-        if (y > canvas.height / 2 && y < canvas.height / 2 + rightArrowImage.height) {
-            changeScene(true);
-        }
-    }
-        //check if the mouse click's position is inside the npc's position for each active scene, then start conversation and draw intro for each npc
-    else if (activeScene == 0) {
-        
-        
+    //check if the mouse click's position is inside the npc's position for each active scene, then start conversation and draw intro for each npc
+    if (activeScene == 0) {
+
+
         if (x > npcs[2].npcPositionX && x < npcs[2].npcPositionX + darkKnightImage.width) {
             if (y > npcs[2].npcPositionY && y < npcs[2].npcPositionY + darkKnightImage.height) {
                 startConversation(npcs[2]);
@@ -87,7 +54,7 @@ function checkMouseClick() {
         }
     }
     else if (activeScene == 2) {
-        
+
         if (x > npcs[5].npcPositionX && x < npcs[5].npcPositionX + sirHenryImage.width) {
             if (y > npcs[5].npcPositionY && y < npcs[5].npcPositionY + sirHenryImage.height) {
                 startConversation(npcs[5]);
@@ -102,10 +69,10 @@ function checkMouseClick() {
                 drawQuestions(randomNumber[4], randomNumber[5], randomNumber[6]);
             }
         }
-        
+
     }
     else if (activeScene == 3) {
-        
+
         if (x > king.npcPositionX && x < king.npcPositionX + kingImage.width) {
             if (y > king.npcPositionY && y < king.npcPositionY + kingImage.height) {
                 startConversation(king);
@@ -133,7 +100,7 @@ function checkMouseClick() {
         }
     }
     else if (activeScene == 4) {
-        
+
         if (x > npcs[6].npcPositionX && x < npcs[6].npcPositionX + sirArthurImage.width) {
             if (y > npcs[6].npcPositionY && y < npcs[6].npcPositionY + sirArthurImage.height) {
                 startConversation(npcs[6]);
@@ -150,8 +117,8 @@ function checkMouseClick() {
         }
     }
     else if (activeScene == 5) {
-        
-     
+
+
         if (x > npcs[9].npcPositionX && x < npcs[9].npcPositionX + resseImage.width) {
             if (y > npcs[9].npcPositionY && y < npcs[9].npcPositionY + resseImage.height) {
                 startConversation(npcs[9]);
@@ -175,7 +142,7 @@ function checkMouseClick() {
         }
     }
     else if (activeScene == 6) {
-        
+
 
         if (x > npcs[14].npcPositionX && x < npcs[14].npcPositionX + zorroImage.width) {
             if (y > npcs[14].npcPositionY && y < npcs[14].npcPositionY + zorroImage.height) {
@@ -192,28 +159,8 @@ function checkMouseClick() {
             }
         }
     }
-   
-}
-
-
-function drawArrows() {
-
-    //load arrow images from their image source
-    leftArrowImage = new Image();
-    leftArrowImage.src = "art/left.png";
-    rightArrowImage = new Image();
-    rightArrowImage.src = "art/right.png";
-
-    //draw the arrow images after they are loaded
-    leftArrowImage.onload = function () {
-        context.drawImage(leftArrowImage, 0, canvas.height / 2);
-    }
-    rightArrowImage.onload = function () {
-        context.drawImage(rightArrowImage, canvas.width - 100, canvas.height / 2);
-    }
 
 }
 
-
-
-
+//store the clicked npc
+var clickedNpc;
