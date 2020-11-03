@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\art",
-    "\\scripts"
+    "\\game",
+    "\\game\\scripts"
   ],
-  "SelectedNode": "\\scripts\\conversations.js",
+  "SelectedNode": "\\game\\scripts\\start-game.js",
   "PreviewInSolutionExplorer": false
 }
